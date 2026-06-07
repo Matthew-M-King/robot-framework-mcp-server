@@ -1,0 +1,79 @@
+{
+  "name": "Robot Framework Failure Review MCP",
+  "description": "Example Claude Desktop configuration for a local Robot Framework result analysis tool.",
+  "protocol": "mcp",
+  "server": {
+    "type": "http",
+    "base_url": "http://127.0.0.1:8000"
+  },
+  "tools": [
+    {
+      "name": "load_result_file",
+      "description": "Load a Robot Framework output.xml file and return a run summary.",
+      "inputs": [
+        {"name": "path", "type": "string", "description": "Path to the output.xml file."}
+      ]
+    },
+    {
+      "name": "get_failed_tests",
+      "description": "Return all failed tests from the most recently loaded Robot Framework run."
+    },
+    {
+      "name": "get_test_details",
+      "description": "Return detailed information for a single failed test.",
+      "inputs": [
+        {"name": "test_name", "type": "string", "description": "Exact or unique partial test name."}
+      ]
+    },
+    {
+      "name": "get_keyword_trace",
+      "description": "Return a readable keyword execution trace for a failed test.",
+      "inputs": [
+        {"name": "test_name", "type": "string", "description": "Exact or unique partial test name."}
+      ]
+    },
+    {
+      "name": "summarize_failures",
+      "description": "Return structured failure groups based on likely shared cause."
+    },
+    {
+      "name": "compare_with_previous_run",
+      "description": "Compare two Robot Framework result files and identify new, repeated, fixed, and consistent failures.",
+      "inputs": [
+        {"name": "current_path", "type": "string"},
+        {"name": "previous_path", "type": "string"}
+      ]
+    },
+    {
+      "name": "generate_bug_report_data",
+      "description": "Generate structured bug report information for a specific failed test.",
+      "inputs": [
+        {"name": "test_name", "type": "string"}
+      ]
+    }
+  ],
+  "resources": [
+    {
+      "uri": "robot://runs/latest",
+      "description": "Summary of the most recently loaded Robot Framework run."
+    },
+    {
+      "uri": "robot://runs/latest/failed",
+      "description": "All failed tests in the most recently loaded run."
+    },
+    {
+      "uri": "robot://tests/{test_name}",
+      "description": "Detailed information for a specific Robot Framework test."
+    },
+    {
+      "uri": "robot://tests/{test_name}/keywords",
+      "description": "Keyword execution trace for a specific Robot Framework test."
+    }
+  ],
+  "prompt_templates": [
+    {
+      "name": "review_robot_failures",
+      "path": "prompt_templates/review_robot_failures.md"
+    }
+  ]
+}

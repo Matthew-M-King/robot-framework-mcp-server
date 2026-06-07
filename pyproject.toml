@@ -1,0 +1,25 @@
+[project]
+name = "robot-framework-mcp-server"
+version = "0.1.0"
+description = "Local MCP-style server for Robot Framework output analysis and failure review."
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+  {name = "GitHub Copilot", email = "noreply@example.com"}
+]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Framework :: Robot Framework",
+  "Topic :: Software Development :: Quality Assurance",
+]
+dependencies = [
+  "robotframework>=5.0",
+  "fastapi>=0.104.0",
+  "uvicorn>=0.24.0",
+]
+[project.optional-dependencies]
+mcp = ["mcp"]
+test = ["pytest>=8.0"]
+[build-system]
+requires = ["setuptools>=65.5.0", "wheel"]
+build-backend = "setuptools.build_meta"

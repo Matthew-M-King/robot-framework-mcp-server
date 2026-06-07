@@ -1,0 +1,14 @@
+[
+  {"folder_fragment": "Login",          "category": "LOGIN",           "hints": []},
+  {"folder_fragment": "Registration",   "category": "REGISTRATION",    "hints": []},
+  {"folder_fragment": "Checkout",       "category": "CHECKOUT",        "hints": []},
+  {"folder_fragment": "Basket",         "category": "BASKET",          "hints": []},
+  {"folder_fragment": "ProductCatalog", "category": "PRODUCT-CATALOG", "hints": []},
+  {"folder_fragment": "Search",         "category": "SEARCH",          "hints": []},
+  {"folder_fragment": "UserAccount",    "category": "USER-ACCOUNT",    "hints": []},
+  {"folder_fragment": "OrderHistory",   "category": "ORDER-HISTORY",   "hints": []},
+  {"folder_fragment": "Notifications",  "category": "NOTIFICATIONS",   "hints": []},
+  {"folder_fragment": "AdminPanel",     "category": "ADMIN",           "hints": []},
+  {"folder_fragment": "Reporting",      "category": "REPORTING",       "hints": []},
+  {"folder_fragment": "PaymentGateway", "category": "PAYMENTS",        "hints": []}
+]
