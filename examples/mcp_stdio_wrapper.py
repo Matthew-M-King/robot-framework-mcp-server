@@ -152,7 +152,7 @@ def get_triage_queue(
 
     Args:
         results_dir: Directory whose subdirectories each contain robot/output.xml.
-        area_filter: Optional folder-name substring filter, e.g. 'EstateManagement'.
+        area_filter: Optional folder-name substring filter, e.g. 'Smoke'.
         top_n: Maximum number of groups to return (default 15).
         exclude_known_defects: Skip groups where all tests already have defectid= tags.
         exclude_infra: Skip pure test-infrastructure failures.
