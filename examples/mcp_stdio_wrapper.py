@@ -118,7 +118,7 @@ def generate_failure_matrix(
 
     Args:
         results_dir: Directory whose subdirectories each contain robot/output.xml.
-        area_filter: Optional folder-name substring filter, e.g. 'EstateManagement'.
+        area_filter: Optional folder-name substring filter, e.g. 'Smoke'.
         output_path: File path to write the report. Extension sets format (.html or .md).
         output_format: "html" (default, interactive with chart) or "markdown".
     """
