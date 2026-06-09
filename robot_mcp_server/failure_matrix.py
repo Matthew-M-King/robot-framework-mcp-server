@@ -11,7 +11,7 @@ import json
 import os
 import re
 from collections import defaultdict
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from datetime import datetime
 from typing import Optional
 
@@ -190,7 +190,7 @@ _SECTION_HEADER = re.compile(r"^\s*\*\*[^*]+\*\*\s*$")
 
 def _strip_section_headers(msg: str) -> str:
     """Remove markdown bold section labels like '**FAILURE REASON**' from message lines."""
-    lines = [l for l in msg.splitlines() if not _SECTION_HEADER.match(l)]
+    lines = [ln for ln in msg.splitlines() if not _SECTION_HEADER.match(ln)]
     return "\n".join(lines).strip()
 
 
@@ -681,7 +681,7 @@ _SKIP_LINE = re.compile(r"^(Setup failed|Suite setup failed|Test setup failed)\s
 def _short(msg: str, n: int = 110) -> str:
     cleaned = _strip_section_headers(msg)
     first = next(
-        (l.strip() for l in cleaned.splitlines() if l.strip() and not _SKIP_LINE.match(l.strip())),
+        (ln.strip() for ln in cleaned.splitlines() if ln.strip() and not _SKIP_LINE.match(ln.strip())),
         "",
     )
     return (first[:n] + "…") if len(first) > n else first
@@ -693,9 +693,9 @@ def _render_md(failures: list[ScoredTest], groups: dict[str, list[ScoredTest]], 
 
     lines += [
         f"# Robot Framework Failure Matrix — {area_label}",
-        f"",
+        "",
         f"_Generated: {now}_",
-        f"",
+        "",
     ]
 
     # --- Area summary ---
@@ -761,8 +761,8 @@ def _render_md(failures: list[ScoredTest], groups: dict[str, list[ScoredTest]], 
                 "",
                 f"**{code_label} Error**: {display_error}",
                 "",
-                f"| Score | Test | Area |",
-                f"|-------|------|------|",
+                "| Score | Test | Area |",
+                "|-------|------|------|",
             ]
             for f in sorted(ep_tests, key=lambda x: -x.score):
                 name = f.name[:80].replace("|", "\\|")

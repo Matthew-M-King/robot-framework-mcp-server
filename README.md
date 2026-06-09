@@ -41,11 +41,13 @@ generate_failure_matrix(output_path="/path/to/report.html")
 get_triage_queue()
 ```
 
+## Demo
+
+![Robot Framework MCP Server — triage session demo](docs/RobotMcP.gif)
+
 ## Interactive HTML Report
 
 ![Failure matrix showing score distribution doughnut chart and collapsible failure groups](docs/failure-matrix.png)
-
-
 
 API docs available at `http://127.0.0.1:8000/docs` once the server is running.
 

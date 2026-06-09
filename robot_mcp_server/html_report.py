@@ -13,9 +13,12 @@ def _e(text) -> str:
 
 
 def _score_cls(score: int) -> str:
-    if score >= 75: return "crit"
-    if score >= 55: return "high"
-    if score >= 35: return "med"
+    if score >= 75:
+        return "crit"
+    if score >= 55:
+        return "high"
+    if score >= 35:
+        return "med"
     return "low"
 
 
@@ -26,10 +29,14 @@ def _badge(score: int, escalated: bool = False) -> str:
 
 
 def _plbl(score: int) -> str:
-    if score >= 70: lbl = "P1"
-    elif score >= 55: lbl = "P2"
-    elif score >= 40: lbl = "P3"
-    else: lbl = "P4"
+    if score >= 70:
+        lbl = "P1"
+    elif score >= 55:
+        lbl = "P2"
+    elif score >= 40:
+        lbl = "P3"
+    else:
+        lbl = "P4"
     return f'<span class="plbl plbl-{lbl}">{lbl}</span>'
 
 
@@ -355,7 +362,7 @@ def render_html(failures: list, groups: dict, area_label: str) -> str:
 
         # Representative error message (first line, stripped)
         rep = members[0]
-        msg_lines = [l.strip() for l in (rep.message or "").splitlines() if l.strip()]
+        msg_lines = [ln.strip() for ln in (rep.message or "").splitlines() if ln.strip()]
         first_msg = msg_lines[0][:160] if msg_lines else ""
 
         # API endpoints for this group

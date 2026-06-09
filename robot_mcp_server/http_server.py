@@ -7,7 +7,7 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
 from .server import RobotResultAnalyzerServer
-from .models import BugReportData, FailureGroup, FailedTestSummary, RobotRunSummary, RunComparisonResult, TestDetails
+from .models import BugReportData, FailureGroup, RobotRunSummary, RunComparisonResult
 from . import failure_matrix as _matrix
 
 app = FastAPI(
@@ -255,7 +255,8 @@ _QUERY_ROW_CAP = 200
 
 @app.post("/tools/query")
 def execute_query(request: QueryRequest) -> dict:
-    import re, sqlite3
+    import re
+    import sqlite3
     from . import db as _db
 
     # Read-only guard — reject anything that isn't a SELECT

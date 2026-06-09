@@ -22,6 +22,8 @@ import warnings
 from datetime import datetime, timezone
 from typing import Optional
 
+from .failure_matrix import GROUP_BONUS_CAP as _GROUP_BONUS_CAP, GROUP_BONUS_PER_EXTRA as _GROUP_BONUS_PER_EXTRA
+
 _DDL = """
 CREATE TABLE IF NOT EXISTS runs (
     id          INTEGER PRIMARY KEY,
@@ -60,7 +62,6 @@ CREATE INDEX IF NOT EXISTS idx_st_run_score ON scored_tests(run_id, base_score D
 
 _DB_FILENAME = "failure_analysis.db"
 
-from .failure_matrix import GROUP_BONUS_PER_EXTRA as _GROUP_BONUS_PER_EXTRA, GROUP_BONUS_CAP as _GROUP_BONUS_CAP
 
 
 def _db_path(results_dir: str) -> str:
@@ -133,8 +134,6 @@ def ingest(results_dir: str, scored_tests: list) -> dict:
     run_id is returned.  Returns a stats dict:
         {run_id, ingested, already_current, total_failures}
     """
-    from .failure_matrix import ScoredTest  # avoid circular import at module level
-
     current_hash = _content_hash(results_dir)
     conn = _connect_and_init(results_dir)
 
