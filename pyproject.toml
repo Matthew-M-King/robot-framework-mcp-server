@@ -3,7 +3,7 @@ name = "robot-framework-mcp-server"
 version = "0.1.0"
 description = "Local MCP-style server for Robot Framework output analysis and failure review."
 readme = "README.md"
-license = {text = "MIT"}
+license = "MIT"
 requires-python = ">=3.11"
 authors = [
   {name = "Matthew King", email = "matthewking182@gmail.com"}
@@ -16,7 +16,6 @@ classifiers = [
   "Framework :: Robot Framework",
   "Topic :: Software Development :: Quality Assurance",
   "Topic :: Software Development :: Testing",
-  "License :: OSI Approved :: MIT License",
   "Intended Audience :: Developers",
 ]
 dependencies = [
@@ -29,6 +28,9 @@ mcp = ["mcp"]
 test = ["pytest>=8.0"]
 [tool.pytest.ini_options]
 pythonpath = ["."]
+
+[tool.setuptools.packages.find]
+include = ["robot_mcp_server*"]
 
 [build-system]
 requires = ["setuptools>=65.5.0", "wheel"]
