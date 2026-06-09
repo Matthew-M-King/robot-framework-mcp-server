@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot Framework" generated="20250609 10:00:00.000" rpa="false">
+  <suite id="s1" name="Checkout Tests" source="tests/checkout.robot">
+
+    <test id="s1-t1" name="Complete Checkout With Valid Card">
+      <tag>priority=critical</tag>
+      <tag>severity=high</tag>
+      <kw name="Navigate To Checkout Page">
+        <msg timestamp="20250609 10:00:01.000" level="INFO">Navigating to /checkout</msg>
+        <status status="PASS" starttime="20250609 10:00:01.000" endtime="20250609 10:00:01.800"/>
+      </kw>
+      <kw name="Enter Payment Details">
+        <msg timestamp="20250609 10:00:01.800" level="INFO">Entering card number and expiry</msg>
+        <status status="PASS" starttime="20250609 10:00:01.800" endtime="20250609 10:00:02.400"/>
+      </kw>
+      <kw name="Click Confirm Order Button">
+        <msg timestamp="20250609 10:00:02.400" level="FAIL">Element 'confirm-order-btn' not found after 10 seconds</msg>
+        <status status="FAIL" starttime="20250609 10:00:02.400" endtime="20250609 10:00:12.400"/>
+      </kw>
+      <status status="FAIL" starttime="20250609 10:00:01.000" endtime="20250609 10:00:12.400">Element 'confirm-order-btn' not found after 10 seconds</status>
+    </test>
+
+    <test id="s1-t2" name="Apply Discount Code At Checkout">
+      <tag>priority=medium</tag>
+      <tag>severity=medium</tag>
+      <kw name="Add Item To Cart">
+        <msg timestamp="20250609 10:00:13.000" level="INFO">Added item SKU-8821 to cart</msg>
+        <status status="PASS" starttime="20250609 10:00:13.000" endtime="20250609 10:00:13.600"/>
+      </kw>
+      <kw name="Enter Discount Code">
+        <msg timestamp="20250609 10:00:13.600" level="INFO">Entering code SAVE15</msg>
+        <status status="PASS" starttime="20250609 10:00:13.600" endtime="20250609 10:00:14.000"/>
+      </kw>
+      <kw name="Verify Discount Applied">
+        <msg timestamp="20250609 10:00:14.000" level="FAIL">Expected discount 15.00 but got 0.00</msg>
+        <status status="FAIL" starttime="20250609 10:00:14.000" endtime="20250609 10:00:14.500"/>
+      </kw>
+      <status status="FAIL" starttime="20250609 10:00:13.000" endtime="20250609 10:00:14.500">Expected discount 15.00 but got 0.00</status>
+    </test>
+
+    <test id="s1-t3" name="Guest Checkout Flow Completes Successfully">
+      <tag>priority=high</tag>
+      <tag>severity=medium</tag>
+      <kw name="Navigate To Checkout Page">
+        <msg timestamp="20250609 10:00:15.000" level="INFO">Navigating to /checkout as guest</msg>
+        <status status="PASS" starttime="20250609 10:00:15.000" endtime="20250609 10:00:15.700"/>
+      </kw>
+      <kw name="Enter Guest Email">
+        <msg timestamp="20250609 10:00:15.700" level="INFO">Entering guest email address</msg>
+        <status status="PASS" starttime="20250609 10:00:15.700" endtime="20250609 10:00:16.200"/>
+      </kw>
+      <kw name="Click Confirm Order Button">
+        <msg timestamp="20250609 10:00:16.200" level="FAIL">Element 'confirm-order-btn' not found after 10 seconds</msg>
+        <status status="FAIL" starttime="20250609 10:00:16.200" endtime="20250609 10:00:26.200"/>
+      </kw>
+      <status status="FAIL" starttime="20250609 10:00:15.000" endtime="20250609 10:00:26.200">Element 'confirm-order-btn' not found after 10 seconds</status>
+    </test>
+
+    <test id="s1-t4" name="Order Summary Displays Correct Totals">
+      <tag>priority=medium</tag>
+      <status status="PASS" starttime="20250609 10:00:27.000" endtime="20250609 10:00:28.400"/>
+    </test>
+
+    <status status="FAIL" starttime="20250609 10:00:00.000" endtime="20250609 10:00:28.400"/>
+  </suite>
+  <statistics>
+    <total>
+      <all pass="1" fail="3">All Tests</all>
+    </total>
+    <tag/>
+    <suite>
+      <stat pass="1" fail="3" id="s1" name="Checkout Tests">Checkout Tests</stat>
+    </suite>
+  </statistics>
+  <errors/>
+</robot>

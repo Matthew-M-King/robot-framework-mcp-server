@@ -3,14 +3,21 @@ name = "robot-framework-mcp-server"
 version = "0.1.0"
 description = "Local MCP-style server for Robot Framework output analysis and failure review."
 readme = "README.md"
+license = {text = "MIT"}
 requires-python = ">=3.11"
 authors = [
-  {name = "GitHub Copilot", email = "noreply@example.com"}
+  {name = "Matthew King", email = "matthewking182@gmail.com"}
 ]
+keywords = ["robot-framework", "mcp", "test-automation", "failure-analysis", "claude"]
 classifiers = [
   "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
   "Framework :: Robot Framework",
   "Topic :: Software Development :: Quality Assurance",
+  "Topic :: Software Development :: Testing",
+  "License :: OSI Approved :: MIT License",
+  "Intended Audience :: Developers",
 ]
 dependencies = [
   "robotframework>=5.0",
